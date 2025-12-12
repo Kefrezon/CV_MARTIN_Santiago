@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CV - Santiago Martin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0f172a;
+      --muted: #5b6474;
+      --panel: #ffffff;
+      --border: #e4e7f0;
+      --accent: #1d4ed8;
+      --accent-soft: #e4e9fb;
+      --highlight: #1d4ed8;
+      --card-radius: 18px;
+      --shadow: 0 22px 60px rgba(15, 23, 42, 0.12);
+      --pill-radius: 999px;
+      --max-width: 1180px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 16% 18%, #eaf1ff 0, #f6f8fc 36%, transparent 60%),
+        radial-gradient(circle at 84% 12%, #fff4d6 0, #f9f2df 28%, transparent 52%),
+        #f3f5fa;
+      color: var(--ink);
+      display: flex;
+      justify-content: center;
+      padding: 42px 22px 54px;
+    }
+
+    .page {
+      max-width: var(--max-width);
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+
+    /* Header */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(120deg, #0c2146 0%, #0f172a 65%, #10203e 100%);
+      color: #f8fbff;
+      border-radius: 26px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(36px);
+      opacity: 0.25;
+      pointer-events: none;
+    }
+    .hero::before { width: 320px; height: 320px; background: #2b65ff; top: -120px; right: -40px; }
+    .hero::after { width: 220px; height: 220px; background: #14b8a6; bottom: -70px; left: -40px; }
+
+    .hero-top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: flex-start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .identity { flex: 1 1 320px; min-width: 280px; }
+
+    .eyebrow {
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #a6b8ff;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-family: "Space Grotesk", "Manrope", sans-serif;
+      font-size: 2.35rem;
+      letter-spacing: 0.02em;
+      margin-bottom: 6px;
+    }
+
+    .role {
+      font-size: 1.08rem;
+      color: #d5defa;
+      margin-bottom: 14px;
+    }
+
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .tag {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #f0f4ff;
+      border-radius: var(--pill-radius);
+      padding: 6px 12px;
+      font-size: 0.82rem;
+      backdrop-filter: blur(6px);
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-end;
+      min-width: 220px;
+    }
+
+    .pill {
+      padding: 8px 12px;
+      border-radius: var(--pill-radius);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      font-size: 0.9rem;
+      color: #e6edff;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      margin-top: 16px;
+      font-size: 0.93rem;
+      color: #d6def6;
+      position: relative;
+      z-index: 1;
+    }
+    .contact span { display: inline-flex; align-items: center; gap: 6px; }
+    .contact a { color: inherit; text-decoration: none; }
+    .contact a:hover { text-decoration: underline; }
+
+    /* Layout */
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.1fr);
+      gap: 26px;
+    }
+
+    .block {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 22px 22px 18px;
+      box-shadow: var(--shadow);
+    }
+    .block + .block { margin-top: 16px; }
+
+    .section-title {
+      font-family: "Space Grotesk", "Manrope", sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title::after {
+      content: "";
+      height: 1px;
+      width: 100px;
+      background: linear-gradient(to right, var(--accent), transparent);
+      display: inline-block;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 16px 14px;
+      background: #fbfcff;
+      margin-bottom: 14px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .card h3 {
+      font-size: 1.06rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 2px;
+    }
+    .card h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .meta {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    .body-text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .muted { color: var(--muted); }
+
+    .impact { font-weight: 400; color: inherit; }
+
+    .list {
+      list-style: none;
+      padding: 0;
+      margin: 6px 0 4px;
+    }
+    .list li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 8px;
+      font-size: 0.92rem;
+      color: var(--ink);
+      padding: 6px 0;
+      line-height: 1.5;
+    }
+    .list li::before {
+      content: "•";
+      color: var(--accent);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .meta-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 6px;
+    }
+    .meta-list li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 0.93rem;
+      line-height: 1.55;
+    }
+    .meta-list li::before {
+      content: "◆";
+      color: var(--accent);
+      font-size: 0.7rem;
+      line-height: 1.4;
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+    }
+    .meta-key {
+      font-weight: 700;
+      color: #0f172a;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.85rem;
+    }
+    .meta-key::after {
+      content: ":";
+      margin-left: 3px;
+      color: #0f172a;
+    }
+    .meta-value { color: var(--ink); word-break: break-word; }
+
+    .chip-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .chip {
+      font-size: 0.8rem;
+      padding: 4px 8px;
+      border-radius: var(--pill-radius);
+      background: var(--accent-soft);
+      border: 1px solid #cfe1ff;
+      color: #153876;
+    }
+
+    .timeline { display: flex; flex-direction: column; gap: 12px; margin-top: 6px; }
+    .timeline-item { position: relative; padding-left: 28px; }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 18px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(31, 111, 235, 0.12);
+    }
+    .timeline-item::after {
+      content: "";
+      position: absolute;
+      left: 9px;
+      top: 30px;
+      width: 1px;
+      height: calc(100% - 30px);
+      background: var(--border);
+    }
+    .timeline-item:last-child::after { display: none; }
+
+    .footer {
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0 6px;
+    }
+
+    @media (max-width: 980px) {
+      .layout { grid-template-columns: 1fr; }
+      .hero { padding: 26px; }
+      h1 { font-size: 2.05rem; }
+    }
+    @media (max-width: 640px) {
+      body { padding: 22px 14px 32px; }
+      .hero { border-radius: 18px; }
+      .contact { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media print {
+      @page {
+        size: 210mm 1450mm;
+        margin: 10mm;
+      }
+      body {
+        background: #fff;
+        padding: 0;
+      }
+      .page {
+        max-width: 100%;
+        box-shadow: none;
+        border: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="hero-top">
+        <div class="identity">
+          <p class="eyebrow">Engineering · Industry 4.0 · Mechatronics</p>
+          <h1>Santiago Martin</h1>
+          <div class="role">Mechanical Engineer focused on Mechatronics</div>
+          <div class="tag-row">
+            <span class="tag">Industrial automation</span>
+            <span class="tag">IIoT & Industry 4.0</span>
+            <span class="tag">Mechanical design</span>
+            <span class="tag">Continuous improvement</span>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="pill">9+ years of experience in industrial environments</div>
+        </div>
+      </div>
+      <div class="contact">
+        <span>Location: Lomas de Zamora, Buenos Aires</span>
+        <span>Phone: <a href="https://wa.me/5491166785548?text=Hi%20Santiago" target="_blank" rel="noreferrer">+54 9 11 6678 5548</a></span>
+        <span>Email: <a href="mailto:san2306@hotmail.com">san2306@hotmail.com</a></span>
+        <span>LinkedIn: <a href="https://www.linkedin.com/in/santiago-nic-martin/" target="_blank" rel="noreferrer">linkedin.com/in/santiago-nic-martin</a></span>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="column">
+        <div class="block">
+          <h2 class="section-title">Summary</h2>
+          <p class="body-text">
+            Mechatronics engineer with 9+ years of experience in industrial automation, mechanical design, IIoT, and continuous improvement.
+            Specialized in integrating mechanical, electronic, and software systems to optimize processes, improve traceability, and enable data-driven decisions.
+          </p>
+          <p class="body-text">
+            Led projects combining <span class="impact">Siemens/Schneider PLCs, ESP32/ESP8266, Node-RED, MQTT, Modbus TCP/IP, Python, InfluxDB, Grafana</span>,
+            together with CAD/CAE design and electromechanical development. Methodical, analytical, and results-oriented; strong collaboration with technical and operations teams.
+          </p>
+        </div>
+
+        <div class="block">
+          <h2 class="section-title">Featured projects</h2>
+
+          <div class="card">
+            <h3>Scale reading digitalization (Scrap) · IoT</h3>
+            <p class="body-text">
+              Electronic system with <span class="impact">ESP32 + RS-232</span> for automatic industrial scale readings, Grafana dashboards, and direct database write.
+            </p>
+            <ul class="meta-list">
+              <li><span class="meta-key">Impact</span><span class="meta-value">Scrap declared vs. actual delta &lt; 2%.</span></li>
+              <li><span class="meta-key">Technologies</span><span class="meta-value">ESP32, RS-232, Node-RED, InfluxDB, Grafana, Python, KiCAD, SolidWorks.</span></li>
+              <li><span class="meta-key">Role</span><span class="meta-value">Design, programming, assembly, installation, and training.</span></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Extruder hopper independence (Mechatronics + PLC)</h3>
+            <p class="body-text">Electromechanical and control system to operate two extrusion lines independently.</p>
+            <ul class="meta-list">
+              <li><span class="meta-key">Impact</span><span class="meta-value">Scrap reduced by half by avoiding cross-line fault carryover.</span></li>
+              <li><span class="meta-key">Technologies</span><span class="meta-value">Inventor, electric motors, sensors, <span class="impact">Siemens LOGO! PLC</span>.</span></li>
+              <li><span class="meta-key">Role</span><span class="meta-value">Project lead, design, programming, implementation.</span></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Cutter 200 · Cutting die design</h3>
+            <p class="body-text">Cutting head for an automated Steel Frame machine (die, drawings, BOM, and fabrication coordination).</p>
+            <ul class="meta-list">
+              <li><span class="meta-key">Impact</span><span class="meta-value">Up to <span class="impact">240 cuts/hour</span>, clean cut, minimal maintenance.</span></li>
+              <li><span class="meta-key">Technologies</span><span class="meta-value">Inventor, AutoCAD, metallurgy, material selection, heat treatments.</span></li>
+              <li><span class="meta-key">Role</span><span class="meta-value">Lead mechanical design and coordination with toolmaking/welding.</span></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Solar generation dashboard</h3>
+            <p class="body-text">Schneider gateway integration via <span class="impact">Modbus TCP</span> with Node-RED, InfluxDB, and Grafana.</p>
+            <ul class="meta-list">
+              <li><span class="meta-key">Impact</span><span class="meta-value">Dashboard used by Management, Sustainability, and Maintenance for real-time information.</span></li>
+              <li><span class="meta-key">Role</span><span class="meta-value">Communications, data modeling, visualization.</span></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Datacenter temperature monitoring · IoT</h3>
+            <p class="body-text">Continuous telemetry with automated alerts to Service Desk for temperature and humidity.</p>
+            <ul class="meta-list">
+              <li><span class="meta-key">Impact</span><span class="meta-value">HVAC failures detected in minutes, mitigating critical risks.</span></li>
+              <li><span class="meta-key">Technologies</span><span class="meta-value">ESP32, Node-RED, InfluxDB, Grafana, helpdesk integration.</span></li>
+              <li><span class="meta-key">Role</span><span class="meta-value">End-to-end design (hardware, backend, visualization).</span></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Operator dashboard + OEE for automated machine (Brazil)</h3>
+            <p class="body-text">Dashboards connected to S7 PLC for operation and OEE analysis of an automated assembly machine.</p>
+            <ul class="meta-list">
+              <li><span class="meta-key">Impact</span><span class="meta-value">Real-time metrics from automation for decision-making.</span></li>
+              <li><span class="meta-key">Technologies</span><span class="meta-value">Node-RED, InfluxDB, Grafana, S7 protocol.</span></li>
+              <li><span class="meta-key">Role</span><span class="meta-value">Dashboard design, data processing, variable definition with PLC programmer.</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="block">
+          <h2 class="section-title">Experience</h2>
+          <div class="timeline">
+            <div class="timeline-item card">
+              <h3>Industry 4.0 Analyst · A.D. Barbieri</h3>
+              <p class="meta">Apr 2023 – Present · Burzaco, Buenos Aires</p>
+              <ul class="list">
+                <li>IIoT solutions with ESP32/ESP8266, Node-RED, and Grafana.</li>
+                <li>Integration of machines with PLCs (Siemens/Schneider) or other controllers via Modbus, S7, MQTT, RS-232/RS-485.</li>
+                <li>Operational and executive dashboards for plant, maintenance, and management.</li>
+                <li>Automation of data collection and digitalization of manual processes.</li>
+                <li>Technical documentation, work instructions, and industrial traceability.</li>
+                <li>Participation in MES projects and generation of standard signals.</li>
+              </ul>
+            </div>
+            <div class="timeline-item card">
+              <h3>Product Technician / Industrial & Technological Development Technician · A.D. Barbieri</h3>
+              <p class="meta">Mar 2017 – Apr 2023</p>
+              <ul class="list">
+                <li>CAD/CAE design of tooling, dies, mechanical devices, and prototypes.</li>
+                <li>Electromechanical solutions for production processes.</li>
+                <li>Techno-economic analysis of new products and projects.</li>
+                <li>Plant layout management, technical documentation, and BOMs.</li>
+                <li>Supplier interaction for fabrication and commissioning.</li>
+                <li>Participation in strategic projects such as the Barbieri panelized system.</li>
+                <li>Coordination of tasks across different areas.</li>
+              </ul>
+            </div>
+            <div class="timeline-item card">
+              <h3>Engineering Assistant · A.D. Barbieri</h3>
+              <p class="meta">Oct 2015 – Mar 2017</p>
+              <ul class="list">
+                <li>Design of mechanical parts and systems in Inventor and AutoCAD.</li>
+                <li>Creation of work instructions, setup sheets, and technical reports.</li>
+                <li>Destructive and non-destructive testing; dimensional analysis of products.</li>
+                <li>Reengineering and competitor benchmarking.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="column">
+        <div class="block">
+          <h2 class="section-title">Technical skills</h2>
+
+          <div class="card">
+            <h4>Automation and control</h4>
+            <ul class="meta-list">
+              <li><span class="meta-key">PLC</span><span class="meta-value">Siemens LOGO!, TIA Portal (basic), Schneider (Zelio Soft).</span></li>
+              <li><span class="meta-key">Control</span><span class="meta-value">Ladder Logic, signal configuration, PLC–system integration.</span></li>
+              <li><span class="meta-key">Protocols</span><span class="meta-value">Modbus TCP/IP, MQTT, RS-232, RS-485, S7.</span></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h4>IIoT and digitalization</h4>
+            <ul class="meta-list">
+              <li><span class="meta-key">Hardware</span><span class="meta-value">ESP32, ESP8266, Arduino, KiCAD.</span></li>
+              <li><span class="meta-key">Platforms</span><span class="meta-value">Node-RED, InfluxDB, Grafana, Google Apps Script, Google Sheets API.</span></li>
+              <li><span class="meta-key">Integration</span><span class="meta-value">MES, operator dashboards, alarms, plant traceability.</span></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h4>Programming and data</h4>
+            <ul class="meta-list">
+              <li><span class="meta-key">Python</span><span class="meta-value">Pandas, Numpy, Matplotlib, Seaborn, Plotly.</span></li>
+              <li><span class="meta-key">Data</span><span class="meta-value">SQL (basic queries), industrial data modeling, dashboards, root-cause analysis with historical data.</span></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h4>Mechanical and electromechanical design</h4>
+            <ul class="meta-list">
+              <li><span class="meta-key">CAD</span><span class="meta-value">Autodesk Inventor, AutoCAD 2D, SolidWorks.</span></li>
+              <li><span class="meta-key">Design</span><span class="meta-value">Tooling, cutting dies, mechanical components, electromechanical devices.</span></li>
+              <li><span class="meta-key">Engineering</span><span class="meta-value">Material selection, heat treatments, drawings, BOMs, integrated mechatronic solutions.</span></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h4>Infrastructure and other</h4>
+            <ul class="meta-list">
+              <li><span class="meta-key">Systems</span><span class="meta-value">Linux, Git, TCP/IP networks, home server admin (Proxmox).</span></li>
+              <li><span class="meta-key">Software</span><span class="meta-value">TOTVS ERP, MES PPI, Power BI (basic), Monday, AI tooling.</span></li>
+              <li><span class="meta-key">Standards</span><span class="meta-value">Technical documentation under ISO 9001 and IRAM standards.</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="block">
+          <h2 class="section-title">Soft skills</h2>
+          <ul class="list">
+            <li>Leadership of multidisciplinary projects (Engineering, Production, Maintenance, IT).</li>
+            <li>Agile / Kanban, weekly planning, and dailies.</li>
+            <li>Analytical, methodical thinking; autonomous problem-solving.</li>
+            <li>Effective communication and negotiation with areas and clients.</li>
+            <li>Technical documentation under ISO 9001.</li>
+            <li>High adaptability (transition from Engineering to IT).</li>
+            <li>Constant innovation and continuous improvement focus.</li>
+            <li>Training teams in IIoT, safety, and system operation.</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <h2 class="section-title">Education</h2>
+          <div class="card">
+            <h4>Mechanical Engineer, Mechatronics focus</h4>
+            <p class="meta">Universidad Nacional de Lomas de Zamora · 2015 – 2025</p>
+          </div>
+          <div class="card">
+            <h4>Electromechanical Technician</h4>
+            <p class="meta">Instituto Tecnológico San Bonifacio · 2008 – 2015</p>
+          </div>
+        </div>
+
+        <div class="block">
+          <h2 class="section-title">Certifications & courses</h2>
+          <ul class="list">
+            <li>Professional Development Program – Grupo Propymes.</li>
+            <li>Innovation as an Applied Strategy – Grupo Propymes.</li>
+            <li>Data Analytics – Talento Tech.</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <h2 class="section-title">Recognitions</h2>
+          <ul class="list">
+            <li>Multiple internal recognitions for technical project results and innovations.</li>
+            <li>Management of technical documentation for Engineering and IT with compliance.</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <h2 class="section-title">Languages</h2>
+          <ul class="list">
+            <li>Spanish: Native.</li>
+            <li>English: Advanced (First Certificate in English – Cambridge).</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <h2 class="section-title">Professional objective</h2>
+          <p class="body-text">
+            Steer my career toward roles with greater technical responsibility in technological and industrial development,
+            contributing experience in mechanical design, mechatronic solutions, and process improvements. Flexible to continue growing
+            in IT areas linked to industrial digitalization and IT/OT integration.
+          </p>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <span>Updated: Dec 2025</span>
+    </footer>
+  </div>
+</body>
+</html>
