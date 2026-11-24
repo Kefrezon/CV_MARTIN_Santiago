@@ -348,6 +348,19 @@
       padding: 0 6px;
     }
 
+    @media screen and (min-width: 981px) {
+      .layout > .column,
+      .personal-projects {
+        display: flex;
+        flex-direction: column;
+      }
+      .layout > .column > .block:last-child,
+      .personal-projects > .card {
+        flex-grow: 1;
+      }
+      .personal-projects > .card { align-content: start; }
+    }
+
     @media (max-width: 980px) {
       .layout { grid-template-columns: 1fr; }
       .hero { padding: 26px; }
@@ -362,13 +375,16 @@
 
     @media print {
       @page {
-        size: 210mm 1450mm;
+        size: A4;
         margin: 10mm;
       }
       body {
         background: #fff;
         padding: 0;
       }
+      .hero, .card { break-inside: avoid; }
+      .section-title { break-after: avoid; }
+      .lang-toggle { display: none; }
       .page {
         max-width: 100%;
         box-shadow: none;
@@ -387,18 +403,18 @@
       </div>
       <div class="hero-top">
         <div class="identity">
-          <p class="eyebrow">Engineering · Industry 4.0 · Mechatronics</p>
+          <p class="eyebrow">Mechanical and Mechatronics Engineer</p>
           <h1>Santiago Martin</h1>
-          <div class="role">Mechanical Engineer focused on Mechatronics</div>
+          <div class="role">Industry 4.0 and Automation Project Leadership</div>
           <div class="tag-row">
-            <span class="tag">Industrial automation</span>
-            <span class="tag">IIoT & Industry 4.0</span>
-            <span class="tag">Mechanical design</span>
-            <span class="tag">Continuous improvement</span>
+            <span class="tag">MES and OEE</span>
+            <span class="tag">IT/OT integration</span>
+            <span class="tag">IIoT and industrial data</span>
+            <span class="tag">Digital transformation</span>
           </div>
         </div>
         <div class="hero-stats">
-          <div class="pill">9+ years of experience in industrial environments</div>
+          <div class="pill">11+ years of industrial experience</div>
         </div>
       </div>
       <div class="contact">
@@ -413,79 +429,8 @@
       <section class="column">
         <div class="block">
           <h2 class="section-title">Summary</h2>
-          <p class="body-text">
-            Mechatronics engineer with 9+ years of experience in industrial automation, mechanical design, IIoT, and continuous improvement.
-            Specialized in integrating mechanical, electronic, and software systems to optimize processes, improve traceability, and enable data-driven decisions.
-          </p>
-          <p class="body-text">
-            Led projects combining <span class="impact">Siemens/Schneider PLCs, ESP32/ESP8266, Node-RED, MQTT, Modbus TCP/IP, Python, InfluxDB, Grafana</span>,
-            together with CAD/CAE design and electromechanical development. Methodical, analytical, and results-oriented; strong collaboration with technical and operations teams.
-          </p>
-        </div>
-
-        <div class="block">
-          <h2 class="section-title">Featured projects</h2>
-
-          <div class="card">
-            <h3>Scale reading digitalization (Scrap) · IoT</h3>
-            <p class="body-text">
-              Electronic system with <span class="impact">ESP32 + RS-232</span> for automatic industrial scale readings, Grafana dashboards, and direct database write.
-            </p>
-            <ul class="meta-list">
-              <li><span class="meta-key">Impact</span><span class="meta-value">Scrap declared vs. actual delta &lt; 2%.</span></li>
-              <li><span class="meta-key">Technologies</span><span class="meta-value">ESP32, RS-232, Node-RED, InfluxDB, Grafana, Python, KiCAD, SolidWorks.</span></li>
-              <li><span class="meta-key">Role</span><span class="meta-value">Design, programming, assembly, installation, and training.</span></li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Extruder hopper independence (Mechatronics + PLC)</h3>
-            <p class="body-text">Electromechanical and control system to operate two extrusion lines independently.</p>
-            <ul class="meta-list">
-              <li><span class="meta-key">Impact</span><span class="meta-value">Scrap reduced by half by avoiding cross-line fault carryover.</span></li>
-              <li><span class="meta-key">Technologies</span><span class="meta-value">Inventor, electric motors, sensors, <span class="impact">Siemens LOGO! PLC</span>.</span></li>
-              <li><span class="meta-key">Role</span><span class="meta-value">Project lead, design, programming, implementation.</span></li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Cutter 200 · Cutting die design</h3>
-            <p class="body-text">Cutting head for an automated Steel Frame machine (die, drawings, BOM, and fabrication coordination).</p>
-            <ul class="meta-list">
-              <li><span class="meta-key">Impact</span><span class="meta-value">Up to <span class="impact">240 cuts/hour</span>, clean cut, minimal maintenance.</span></li>
-              <li><span class="meta-key">Technologies</span><span class="meta-value">Inventor, AutoCAD, metallurgy, material selection, heat treatments.</span></li>
-              <li><span class="meta-key">Role</span><span class="meta-value">Lead mechanical design and coordination with toolmaking/welding.</span></li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Solar generation dashboard</h3>
-            <p class="body-text">Schneider gateway integration via <span class="impact">Modbus TCP</span> with Node-RED, InfluxDB, and Grafana.</p>
-            <ul class="meta-list">
-              <li><span class="meta-key">Impact</span><span class="meta-value">Dashboard used by Management, Sustainability, and Maintenance for real-time information.</span></li>
-              <li><span class="meta-key">Role</span><span class="meta-value">Communications, data modeling, visualization.</span></li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Datacenter temperature monitoring · IoT</h3>
-            <p class="body-text">Continuous telemetry with automated alerts to Service Desk for temperature and humidity.</p>
-            <ul class="meta-list">
-              <li><span class="meta-key">Impact</span><span class="meta-value">HVAC failures detected in minutes, mitigating critical risks.</span></li>
-              <li><span class="meta-key">Technologies</span><span class="meta-value">ESP32, Node-RED, InfluxDB, Grafana, helpdesk integration.</span></li>
-              <li><span class="meta-key">Role</span><span class="meta-value">End-to-end design (hardware, backend, visualization).</span></li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Operator dashboard + OEE for automated machine (Brazil)</h3>
-            <p class="body-text">Dashboards connected to S7 PLC for operation and OEE analysis of an automated assembly machine.</p>
-            <ul class="meta-list">
-              <li><span class="meta-key">Impact</span><span class="meta-value">Real-time metrics from automation for decision-making.</span></li>
-              <li><span class="meta-key">Technologies</span><span class="meta-value">Node-RED, InfluxDB, Grafana, S7 protocol.</span></li>
-              <li><span class="meta-key">Role</span><span class="meta-value">Dashboard design, data processing, variable definition with PLC programmer.</span></li>
-            </ul>
-          </div>
+          <p class="body-text">Mechanical and mechatronics engineer with over 11 years of experience in industrial environments. I lead Industry 4.0 and automation projects that connect plant equipment to a range of systems and data platforms.</p>
+          <p class="body-text">I work with Production, Engineering, Maintenance, and IT teams to deploy solutions on the plant floor, from PLC data acquisition to operational dashboards and alerts. I also lead the development of AI agents for industrial and administrative processes.</p>
         </div>
 
         <div class="block">
@@ -495,12 +440,10 @@
               <h3>Industry 4.0 Analyst · A.D. Barbieri</h3>
               <p class="meta">Apr 2023 – Present · Burzaco, Buenos Aires</p>
               <ul class="list">
-                <li>IIoT solutions with ESP32/ESP8266, Node-RED, and Grafana.</li>
-                <li>Integration of machines with PLCs (Siemens/Schneider) or other controllers via Modbus, S7, MQTT, RS-232/RS-485.</li>
-                <li>Operational and executive dashboards for plant, maintenance, and management.</li>
-                <li>Automation of data collection and digitalization of manual processes.</li>
-                <li>Technical documentation, work instructions, and industrial traceability.</li>
-                <li>Participation in MES projects and generation of standard signals.</li>
+                <li>Technical leadership of digital transformation projects in industrial environments.</li>
+                <li>Designed and implemented IIoT solutions spanning PLC and sensor data acquisition, storage, dashboards, and alerts.</li>
+                <li>Coordinated with Production, Engineering, Maintenance, and IT to define requirements, document solutions, and train users.</li>
+                <li>Tracked projects using Kanban in Monday and coordinated technical work with suppliers.</li>
               </ul>
             </div>
             <div class="timeline-item card">
@@ -526,6 +469,82 @@
                 <li>Reengineering and competitor benchmarking.</li>
               </ul>
             </div>
+          </div>
+        </div>
+
+        <div class="block">
+          <h2 class="section-title">Featured projects</h2>
+
+          <div class="card">
+            <h3>MES integration in production</h3>
+            <p class="body-text">Plant equipment integration with MES in Brazil and expansion of the system in Argentina.</p>
+            <ul class="meta-list">
+              <li><span class="meta-key">Impact</span><span class="meta-value">7 machines connected to the production MES in Brazil and a new business unit brought onto the system in Argentina.</span></li>
+              <li><span class="meta-key">Technologies</span><span class="meta-value">MES, IT/OT integration, and plant equipment signals.</span></li>
+              <li><span class="meta-key">Role</span><span class="meta-value">Led the technical integration in Brazil. In Argentina, I was responsible for MES maintenance and led the project to integrate the new business unit.</span></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Industrial data platform</h3>
+            <p class="body-text">Platform for acquiring, storing, and visualizing plant data.</p>
+            <ul class="meta-list">
+              <li><span class="meta-key">Impact</span><span class="meta-value">PLC and IIoT device signals made available through operational dashboards and alerts.</span></li>
+              <li><span class="meta-key">Technologies</span><span class="meta-value">PLCs, IIoT devices, Node-RED, InfluxDB, and Grafana.</span></li>
+              <li><span class="meta-key">Role</span><span class="meta-value">Designed and implemented the complete workflow, from signal acquisition to storage, dashboards, and alerts.</span></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Operator dashboard + OEE for automated machine (Brazil)</h3>
+            <p class="body-text">Dashboards connected to S7 PLC for operation and OEE analysis of an automated assembly machine.</p>
+            <ul class="meta-list">
+              <li><span class="meta-key">Impact</span><span class="meta-value">Real-time metrics from automation for decision-making.</span></li>
+              <li><span class="meta-key">Technologies</span><span class="meta-value">Node-RED, InfluxDB, Grafana, S7 protocol.</span></li>
+              <li><span class="meta-key">Role</span><span class="meta-value">Dashboard design, data processing, variable definition with PLC programmer.</span></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Scale reading digitalization (Scrap) · IoT</h3>
+            <p class="body-text">
+              Electronic system with <span class="impact">ESP32 + RS-232</span> for automatic industrial scale readings, Grafana dashboards, and direct database write.
+            </p>
+            <ul class="meta-list">
+              <li><span class="meta-key">Impact</span><span class="meta-value">Scrap declared vs. actual delta &lt; 2%.</span></li>
+              <li><span class="meta-key">Technologies</span><span class="meta-value">ESP32, RS-232, Node-RED, InfluxDB, Grafana, Python, KiCAD, SolidWorks.</span></li>
+              <li><span class="meta-key">Role</span><span class="meta-value">Design, programming, assembly, installation, and training.</span></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Extruder hopper independence (Mechatronics + PLC)</h3>
+            <p class="body-text">Electromechanical and control system to operate two extrusion lines independently.</p>
+            <ul class="meta-list">
+              <li><span class="meta-key">Impact</span><span class="meta-value">Scrap reduced by half by avoiding cross-line fault carryover.</span></li>
+              <li><span class="meta-key">Technologies</span><span class="meta-value">Inventor, electric motors, sensors, <span class="impact">Siemens LOGO! PLC</span>.</span></li>
+              <li><span class="meta-key">Role</span><span class="meta-value">Project lead, design, programming, implementation.</span></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>AI agents for business processes</h3>
+            <p class="body-text">Development of ChatGPT agents to support business processes.</p>
+            <ul class="meta-list">
+              <li><span class="meta-key">Impact</span><span class="meta-value">Initial testing underway following process discovery and knowledge transfer to the team.</span></li>
+              <li><span class="meta-key">Technologies</span><span class="meta-value">ChatGPT, skills, and plugins.</span></li>
+              <li><span class="meta-key">Role</span><span class="meta-value">Led the project end to end. I made project decisions, coordinated the team and meetings, and led process discovery, knowledge transfer, and the development of skills and plugins.</span></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Cutter 200 · Cutting die design</h3>
+            <p class="body-text">Cutting head for an automated Steel Frame machine (die, drawings, BOM, and fabrication coordination).</p>
+            <ul class="meta-list">
+              <li><span class="meta-key">Impact</span><span class="meta-value">Up to <span class="impact">240 cuts/hour</span>, clean cut, minimal maintenance.</span></li>
+              <li><span class="meta-key">Technologies</span><span class="meta-value">Inventor, AutoCAD, metallurgy, material selection, heat treatments.</span></li>
+              <li><span class="meta-key">Role</span><span class="meta-value">Lead mechanical design and coordination with toolmaking/welding.</span></li>
+            </ul>
           </div>
         </div>
       </section>
@@ -570,34 +589,35 @@
           </div>
 
           <div class="card">
+            <h4>Advanced AI</h4>
+            <ul class="meta-list">
+              <li><span class="meta-key">Platforms</span><span class="meta-value">Claude and ChatGPT.</span></li>
+              <li><span class="meta-key">Administration</span><span class="meta-value">Workspace administration.</span></li>
+              <li><span class="meta-key">Development</span><span class="meta-value">Skills, automations, plugins, and AI agents.</span></li>
+            </ul>
+          </div>
+
+          <div class="card">
             <h4>Infrastructure and other</h4>
             <ul class="meta-list">
               <li><span class="meta-key">Systems</span><span class="meta-value">Linux, Git, TCP/IP networks, home server admin (Proxmox).</span></li>
-              <li><span class="meta-key">Software</span><span class="meta-value">TOTVS ERP, MES PPI, Power BI (basic), Monday, AI tooling.</span></li>
+              <li><span class="meta-key">Software</span><span class="meta-value">TOTVS ERP, MES PPI, Power BI (basic), Monday.</span></li>
               <li><span class="meta-key">Standards</span><span class="meta-value">Technical documentation under ISO 9001 and IRAM standards.</span></li>
             </ul>
           </div>
         </div>
 
         <div class="block">
-          <h2 class="section-title">Soft skills</h2>
-          <ul class="list">
-            <li>Leadership of multidisciplinary projects (Engineering, Production, Maintenance, IT).</li>
-            <li>Agile / Kanban, weekly planning, and dailies.</li>
-            <li>Analytical, methodical thinking; autonomous problem-solving.</li>
-            <li>Effective communication and negotiation with areas and clients.</li>
-            <li>Technical documentation under ISO 9001.</li>
-            <li>High adaptability (transition from Engineering to IT).</li>
-            <li>Constant innovation and continuous improvement focus.</li>
-            <li>Training teams in IIoT, safety, and system operation.</li>
-          </ul>
-        </div>
-
-        <div class="block">
           <h2 class="section-title">Education</h2>
           <div class="card">
-            <h4>Mechanical Engineer, Mechatronics focus</h4>
-            <p class="meta">Universidad Nacional de Lomas de Zamora · 2015 – 2025</p>
+            <h4>Mechanical Engineering</h4>
+            <p class="meta">Universidad Nacional de Lomas de Zamora · 2015–2025</p>
+            <p class="meta">Active professional registration in Argentina</p>
+          </div>
+          <div class="card">
+            <h4>Mechatronics Engineering</h4>
+            <p class="meta">Universidad Nacional de Lomas de Zamora · 2015–2026</p>
+            <p class="meta">Degree issuance pending</p>
           </div>
           <div class="card">
             <h4>Electromechanical Technician</h4>
@@ -608,6 +628,7 @@
         <div class="block">
           <h2 class="section-title">Certifications & courses</h2>
           <ul class="list">
+            <li>Innovation and Applied AI - Impulso Brown (associated with UNAB).</li>
             <li>Professional Development Program – Grupo Propymes.</li>
             <li>Innovation as an Applied Strategy – Grupo Propymes.</li>
             <li>Data Analytics – Talento Tech.</li>
@@ -626,23 +647,38 @@
           <h2 class="section-title">Languages</h2>
           <ul class="list">
             <li>Spanish: Native.</li>
-            <li>English: Advanced (First Certificate in English – Cambridge).</li>
+            <li>English: Cambridge First Certificate in English (FCE).</li>
           </ul>
         </div>
 
-        <div class="block">
-          <h2 class="section-title">Professional objective</h2>
-          <p class="body-text">
-            Steer my career toward roles with greater technical responsibility in technological and industrial development,
-            contributing experience in mechanical design, mechatronic solutions, and process improvements. Flexible to continue growing
-            in IT areas linked to industrial digitalization and IT/OT integration.
-          </p>
+        <div class="block personal-projects">
+          <h2 class="section-title">Personal projects</h2>
+          <div class="card">
+            <h4>Test Miradas</h4>
+            <p class="body-text">Multi-user web platform built for doctoral research in neuroscience. It supports adding assessment instruments and managing results and reports for each patient.</p>
+            <ul class="meta-list">
+              <li><span class="meta-key">Frontend</span> <span class="meta-value">HTML, CSS, and JavaScript</span></li>
+              <li><span class="meta-key">Backend</span> <span class="meta-value">Node.js and Express</span></li>
+              <li><span class="meta-key">Database</span> <span class="meta-value">MariaDB</span></li>
+              <li><span class="meta-key">Infrastructure</span> <span class="meta-value">Docker Compose</span></li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>Folio · Personal finance</h4>
+            <p class="body-text">Web application that consolidates portfolios across brokers. It imports transactions and helps track investment allocation and performance.</p>
+            <ul class="meta-list">
+              <li><span class="meta-key">Frontend</span> <span class="meta-value">HTML, CSS, and JavaScript</span></li>
+              <li><span class="meta-key">Charts</span> <span class="meta-value">Apache ECharts</span></li>
+              <li><span class="meta-key">Data and hosting</span> <span class="meta-value">Cloud Firestore and Firebase Hosting</span></li>
+              <li><span class="meta-key">Price updates</span> <span class="meta-value">Cloudflare Workers with TypeScript</span></li>
+            </ul>
+          </div>
         </div>
       </aside>
     </main>
 
     <footer class="footer">
-      <span>Updated: Dec 2025</span>
+      <span>Updated November 2026</span>
     </footer>
   </div>
 </body>

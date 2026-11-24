@@ -361,6 +361,19 @@
       padding: 0 6px;
     }
 
+    @media screen and (min-width: 981px) {
+      .layout > .column,
+      .personal-projects {
+        display: flex;
+        flex-direction: column;
+      }
+      .layout > .column > .block:last-child,
+      .personal-projects > .card {
+        flex-grow: 1;
+      }
+      .personal-projects > .card { align-content: start; }
+    }
+
     @media (max-width: 980px) {
       .layout { grid-template-columns: 1fr; }
       .hero { padding: 26px; }
@@ -375,13 +388,16 @@
 
     @media print {
       @page {
-        size: 210mm 1450mm;
+        size: A4;
         margin: 10mm;
       }
       body {
         background: #fff;
         padding: 0;
       }
+      .hero, .card { break-inside: avoid; }
+      .section-title { break-after: avoid; }
+      .lang-toggle { display: none; }
       .page {
         max-width: 100%;
         box-shadow: none;
@@ -400,18 +416,18 @@
       </div>
       <div class="hero-top">
         <div class="identity">
-          <p class="eyebrow">Ingeniería · Industria 4.0 · Mecatrónica</p>
+          <p class="eyebrow">Ingeniero mecánico y mecatrónico</p>
           <h1>Santiago Martín</h1>
-          <div class="role">Ingeniero Mecánico orientado a Mecatrónica</div>
+          <div class="role">Liderazgo de proyectos de Industria 4.0 y automatización</div>
           <div class="tag-row">
-            <span class="tag">Automatización industrial</span>
-            <span class="tag">IIoT e Industria 4.0</span>
-            <span class="tag">Diseño mecánico</span>
-            <span class="tag">Mejora continua</span>
+            <span class="tag">MES y OEE</span>
+            <span class="tag">Integración IT/OT</span>
+            <span class="tag">IIoT y datos industriales</span>
+            <span class="tag">Transformación digital</span>
           </div>
         </div>
         <div class="hero-stats">
-          <div class="pill">+9 años de experiencia en entornos industriales</div>
+          <div class="pill">Más de 11 años de experiencia industrial</div>
         </div>
       </div>
       <div class="contact">
@@ -426,81 +442,8 @@
       <section class="column">
         <div class="block">
           <h2 class="section-title">Resumen</h2>
-          <p class="body-text">
-            Ingeniero mecatrónico con más de 9 años de experiencia en automatización industrial, diseño mecánico, IIoT y mejora continua.
-            Especializado en integrar sistemas mecánicos, electrónicos y de software para optimizar procesos, mejorar trazabilidad y habilitar
-            decisiones basadas en datos.
-          </p>
-          <p class="body-text">
-            Lideré proyectos combinando <span class="impact">PLC Siemens/Schneider, ESP32/ESP8266, Node-RED, MQTT, Modbus TCP/IP, Python, InfluxDB y Grafana</span>,
-            junto con diseño CAD/CAE y desarrollo electromecánico. Enfoque metódico, analítico y orientado a resultados, facilitando colaboración
-            entre áreas técnicas y operativas.
-          </p>
-        </div>
-
-        <div class="block">
-          <h2 class="section-title">Proyectos destacados</h2>
-
-          <div class="card">
-            <h3>Digitalización de lectura de balanzas (Scrap) · IoT</h3>
-            <p class="body-text">
-              Sistema electrónico con <span class="impact">ESP32 + RS-232</span> para lectura automática de balanzas industriales, dashboards en Grafana y envío directo a base de datos.
-            </p>
-            <ul class="meta-list">
-              <li><span class="meta-key">Impacto</span><span class="meta-value">Desfase scrap declarado vs real &lt; 2%.</span></li>
-              <li><span class="meta-key">Tecnologías</span><span class="meta-value">ESP32, RS-232, Node-RED, InfluxDB, Grafana, Python, KiCAD, SolidWorks.</span></li>
-              <li><span class="meta-key">Rol</span><span class="meta-value">Diseño, programación, montaje, instalación y capacitación.</span></li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Independización de bateas en extrusora (Mecatrónico + PLC)</h3>
-            <p class="body-text">Sistema electromecánico y de control para operar dos líneas de extrusión de forma independiente.</p>
-            <ul class="meta-list">
-              <li><span class="meta-key">Impacto</span><span class="meta-value">Scrap reducido a la mitad al evitar arrastre de fallas.</span></li>
-              <li><span class="meta-key">Tecnologías</span><span class="meta-value">Inventor, motores eléctricos, sensores, <span class="impact">PLC Siemens LOGO!</span>.</span></li>
-              <li><span class="meta-key">Rol</span><span class="meta-value">Líder de proyecto, diseño, programación e implementación.</span></li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Cutter 200 · Diseño de matriz de corte</h3>
-            <p class="body-text">Cabezal de corte para máquina automatizada Steel Frame (matriz, planos, BOM y coordinación de fabricación).</p>
-            <ul class="meta-list">
-              <li><span class="meta-key">Impacto</span><span class="meta-value">Hasta <span class="impact">240 cortes/hora</span>, corte limpio y mínimo mantenimiento.</span></li>
-              <li><span class="meta-key">Tecnologías</span><span class="meta-value">Inventor, AutoCAD, metalurgia, selección de materiales y tratamientos térmicos.</span></li>
-              <li><span class="meta-key">Rol</span><span class="meta-value">Diseño mecánico principal y coordinación con matricería/herrería.</span></li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Dashboard de generación de energía solar</h3>
-            <p class="body-text">Integración gateway Schneider vía <span class="impact">Modbus TCP</span> con Node-RED, InfluxDB y Grafana.</p>
-            <ul class="meta-list">
-              <li><span class="meta-key">Impacto</span><span class="meta-value">Tablero usado por Dirección, Sustentabilidad y Mantenimiento para obtener información en tiempo real.</span></li>
-              <li><span class="meta-key">Rol</span><span class="meta-value">Comunicaciones, modelado de datos y visualización.</span></li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Monitoreo de temperatura de Datacenter · IoT</h3>
-            <p class="body-text">Telemetría continua con alarmas automáticas hacia Service Desk para temperatura y humedad en datacenter.</p>
-            <ul class="meta-list">
-              <li><span class="meta-key">Impacto</span><span class="meta-value">Detección de fallas HVAC en minutos, mitigando riesgos críticos.</span></li>
-              <li><span class="meta-key">Tecnologías</span><span class="meta-value">ESP32, Node-RED, InfluxDB, Grafana, integración con mesa de ayuda.</span></li>
-              <li><span class="meta-key">Rol</span><span class="meta-value">Diseño completo (hardware, backend y visualización).</span></li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Dashboard Operador + OEE para máquina automática (Brasil)</h3>
-            <p class="body-text">Tableros conectados al PLC S7 para operación y análisis OEE de máquina ensambladora automática.</p>
-            <ul class="meta-list">
-              <li><span class="meta-key">Impacto</span><span class="meta-value">Métricas en tiempo real desde la automatización para decisiones.</span></li>
-              <li><span class="meta-key">Tecnologías</span><span class="meta-value">Node-RED, InfluxDB, Grafana, protocolo S7.</span></li>
-              <li><span class="meta-key">Rol</span><span class="meta-value">Diseño de tableros, procesamiento de datos y definición de variables junto al programador PLC.</span></li>
-            </ul>
-          </div>
+          <p class="body-text">Ingeniero mecánico y mecatrónico con más de 11 años de experiencia en entornos industriales. Lidero proyectos de Industria 4.0 y automatización que conectan maquinaria de planta con distintos sistemas y plataformas de datos.</p>
+          <p class="body-text">Coordino con los equipos de Producción, Ingeniería, Mantenimiento y TIC para llevar soluciones a planta, desde la captura de datos de PLC hasta su visualización en tableros operativos y la generación de alertas. También lidero el desarrollo de agentes de IA para procesos industriales y administrativos.</p>
         </div>
 
         <div class="block">
@@ -510,12 +453,10 @@
               <h3>Analista de Industrias 4.0 · A.D. Barbieri</h3>
               <p class="meta">Abr 2023 – Presente · Burzaco, Buenos Aires</p>
               <ul class="list">
-                <li>Soluciones IIoT con ESP32/ESP8266, Node-RED y Grafana.</li>
-                <li>Integración de máquinas con PLC (Siemens/Schneider) o distintos controladores vía Modbus, S7, MQTT, RS-232/RS-485.</li>
-                <li>Dashboards operativos y ejecutivos para planta, mantenimiento y dirección.</li>
-                <li>Automatización de recolección de datos y digitalización de procesos manuales.</li>
-                <li>Gestión de documentación técnica, instructivos y trazabilidad industrial.</li>
-                <li>Participación en proyectos MES y generación de señales estándar.</li>
+                <li>Liderazgo técnico de proyectos de transformación digital en entornos industriales.</li>
+                <li>Diseño e implementación de soluciones IIoT, desde la captura de señales de PLC y sensores hasta el almacenamiento, la visualización y las alertas.</li>
+                <li>Coordinación con Producción, Ingeniería, Mantenimiento y TIC para definir requerimientos, documentar soluciones y capacitar usuarios.</li>
+                <li>Seguimiento de proyectos con Kanban en Monday y coordinación técnica con proveedores.</li>
               </ul>
             </div>
             <div class="timeline-item card">
@@ -541,6 +482,82 @@
                 <li>Participación en reingeniería y benchmarking de competidores.</li>
               </ul>
             </div>
+          </div>
+        </div>
+
+        <div class="block">
+          <h2 class="section-title">Proyectos destacados</h2>
+
+          <div class="card">
+            <h3>Integración MES en producción</h3>
+            <p class="body-text">Integración de equipos de planta con el MES en Brasil y ampliación del sistema en Argentina.</p>
+            <ul class="meta-list">
+              <li><span class="meta-key">Impacto</span><span class="meta-value">7 máquinas integradas al MES en producción en Brasil e incorporación de una nueva unidad de negocio en Argentina.</span></li>
+              <li><span class="meta-key">Tecnologías</span><span class="meta-value">MES, integración IT/OT y señales de equipos de planta.</span></li>
+              <li><span class="meta-key">Rol</span><span class="meta-value">Lideré la integración técnica en Brasil. En Argentina estuve a cargo del mantenimiento del MES y lideré el proyecto de integración de la nueva unidad de negocio.</span></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Plataforma de datos industriales</h3>
+            <p class="body-text">Plataforma de adquisición, almacenamiento y visualización de datos de planta.</p>
+            <ul class="meta-list">
+              <li><span class="meta-key">Impacto</span><span class="meta-value">Disponibilidad de señales de PLC y dispositivos IIoT en tableros operativos y alertas.</span></li>
+              <li><span class="meta-key">Tecnologías</span><span class="meta-value">PLC, dispositivos IIoT, Node-RED, InfluxDB y Grafana.</span></li>
+              <li><span class="meta-key">Rol</span><span class="meta-value">Diseñé e implementé el flujo completo, desde la adquisición de señales hasta el almacenamiento, los tableros y las alertas.</span></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Dashboard Operador + OEE para máquina automática (Brasil)</h3>
+            <p class="body-text">Tableros conectados al PLC S7 para operación y análisis OEE de máquina ensambladora automática.</p>
+            <ul class="meta-list">
+              <li><span class="meta-key">Impacto</span><span class="meta-value">Métricas en tiempo real desde la automatización para decisiones.</span></li>
+              <li><span class="meta-key">Tecnologías</span><span class="meta-value">Node-RED, InfluxDB, Grafana, protocolo S7.</span></li>
+              <li><span class="meta-key">Rol</span><span class="meta-value">Diseño de tableros, procesamiento de datos y definición de variables junto al programador PLC.</span></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Digitalización de lectura de balanzas (Scrap) · IoT</h3>
+            <p class="body-text">
+              Sistema electrónico con <span class="impact">ESP32 + RS-232</span> para lectura automática de balanzas industriales, dashboards en Grafana y envío directo a base de datos.
+            </p>
+            <ul class="meta-list">
+              <li><span class="meta-key">Impacto</span><span class="meta-value">Desfase scrap declarado vs real &lt; 2%.</span></li>
+              <li><span class="meta-key">Tecnologías</span><span class="meta-value">ESP32, RS-232, Node-RED, InfluxDB, Grafana, Python, KiCAD, SolidWorks.</span></li>
+              <li><span class="meta-key">Rol</span><span class="meta-value">Diseño, programación, montaje, instalación y capacitación.</span></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Independización de bateas en extrusora (Mecatrónico + PLC)</h3>
+            <p class="body-text">Sistema electromecánico y de control para operar dos líneas de extrusión de forma independiente.</p>
+            <ul class="meta-list">
+              <li><span class="meta-key">Impacto</span><span class="meta-value">Scrap reducido a la mitad al evitar arrastre de fallas.</span></li>
+              <li><span class="meta-key">Tecnologías</span><span class="meta-value">Inventor, motores eléctricos, sensores, <span class="impact">PLC Siemens LOGO!</span>.</span></li>
+              <li><span class="meta-key">Rol</span><span class="meta-value">Líder de proyecto, diseño, programación e implementación.</span></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Agentes de IA aplicados al negocio</h3>
+            <p class="body-text">Desarrollo de agentes en ChatGPT para asistir procesos de negocio.</p>
+            <ul class="meta-list">
+              <li><span class="meta-key">Impacto</span><span class="meta-value">Pruebas iniciales tras el relevamiento de procesos y la transferencia de conocimiento al equipo.</span></li>
+              <li><span class="meta-key">Tecnologías</span><span class="meta-value">ChatGPT, skills y complementos.</span></li>
+              <li><span class="meta-key">Rol</span><span class="meta-value">Lideré el proyecto de punta a punta. Tomé las decisiones, coordiné el equipo y las reuniones, y conduje el relevamiento, la transferencia de conocimiento y el desarrollo de skills y complementos.</span></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Cutter 200 · Diseño de matriz de corte</h3>
+            <p class="body-text">Cabezal de corte para máquina automatizada Steel Frame (matriz, planos, BOM y coordinación de fabricación).</p>
+            <ul class="meta-list">
+              <li><span class="meta-key">Impacto</span><span class="meta-value">Hasta <span class="impact">240 cortes/hora</span>, corte limpio y mínimo mantenimiento.</span></li>
+              <li><span class="meta-key">Tecnologías</span><span class="meta-value">Inventor, AutoCAD, metalurgia, selección de materiales y tratamientos térmicos.</span></li>
+              <li><span class="meta-key">Rol</span><span class="meta-value">Diseño mecánico principal y coordinación con matricería/herrería.</span></li>
+            </ul>
           </div>
         </div>
       </section>
@@ -585,34 +602,35 @@
           </div>
 
           <div class="card">
+            <h4>IA avanzada</h4>
+            <ul class="meta-list">
+              <li><span class="meta-key">Plataformas</span><span class="meta-value">Claude y ChatGPT.</span></li>
+              <li><span class="meta-key">Administración</span><span class="meta-value">Administración del espacio de trabajo (workspace).</span></li>
+              <li><span class="meta-key">Desarrollo</span><span class="meta-value">Skills, automatizaciones, complementos y agentes de IA.</span></li>
+            </ul>
+          </div>
+
+          <div class="card">
             <h4>Infraestructura y otros</h4>
             <ul class="meta-list">
               <li><span class="meta-key">Sistemas</span><span class="meta-value">Linux, Git, redes TCP/IP, administración y mantenimiento de servidor hogareño (Proxmox).</span></li>
-              <li><span class="meta-key">Software</span><span class="meta-value">TOTVS ERP, MES PPI, Power BI (básico), Monday, manejo de IA.</span></li>
+              <li><span class="meta-key">Software</span><span class="meta-value">TOTVS ERP, MES PPI, Power BI (básico), Monday.</span></li>
               <li><span class="meta-key">Normas</span><span class="meta-value">Documentación técnica bajo ISO 9001 y normas IRAM.</span></li>
             </ul>
           </div>
         </div>
 
         <div class="block">
-          <h2 class="section-title">Habilidades blandas</h2>
-          <ul class="list">
-            <li>Liderazgo de proyectos multidisciplinarios (Ingeniería, Producción, Mantenimiento, TIC).</li>
-            <li>Metodologías Agile / Kanban, planificación semanal y dailies.</li>
-            <li>Pensamiento analítico y metódico; resolución autónoma de problemas.</li>
-            <li>Comunicación efectiva y capacidad de negociación entre áreas y clientes.</li>
-            <li>Documentación técnica bajo normas ISO 9001.</li>
-            <li>Alta adaptabilidad (transición de Ingeniería a TIC).</li>
-            <li>Innovación constante y enfoque en mejora continua.</li>
-            <li>Capacitación a equipos en IIoT, seguridad y operación de sistemas.</li>
-          </ul>
-        </div>
-
-        <div class="block">
           <h2 class="section-title">Educación</h2>
           <div class="card">
-            <h4>Ingeniero Mecánico con Orientación en Mecatrónica</h4>
+            <h4>Ingeniería Mecánica</h4>
             <p class="meta">Universidad Nacional de Lomas de Zamora · 2015 – 2025</p>
+            <p class="meta">Matrícula profesional vigente</p>
+          </div>
+          <div class="card">
+            <h4>Ingeniería Mecatrónica</h4>
+            <p class="meta">Universidad Nacional de Lomas de Zamora · 2015 – 2026</p>
+            <p class="meta">Título en trámite</p>
           </div>
           <div class="card">
             <h4>Técnico Electromecánico</h4>
@@ -623,6 +641,7 @@
         <div class="block">
           <h2 class="section-title">Certificaciones y cursos</h2>
           <ul class="list">
+            <li>Innovación e IA aplicada - Impulso Brown (vinculado a la UNAB).</li>
             <li>Programa de Desarrollo Profesional – Grupo Propymes.</li>
             <li>Innovación como Estrategia Aplicada – Grupo Propymes.</li>
             <li>Data Analytics – Talento Tech.</li>
@@ -641,21 +660,38 @@
           <h2 class="section-title">Idiomas</h2>
           <ul class="list">
             <li>Español: Nativo.</li>
-            <li>Inglés: Avanzado (First Certificate in English – Cambridge).</li>
+            <li>Inglés: Cambridge First Certificate in English (FCE).</li>
           </ul>
         </div>
 
-        <div class="block">
-          <h2 class="section-title">Objetivo profesional</h2>
-          <p class="body-text">
-            Orientar mi carrera hacia roles con mayor responsabilidad técnica en el desarrollo tecnológico e industrial, aportando experiencia en diseño mecánico, soluciones mecatrónicas y mejoras de procesos. Mantengo flexibilidad para continuar creciendo en áreas TIC vinculadas a la digitalización industrial y la integración IT/OT.
-          </p>
+        <div class="block personal-projects">
+          <h2 class="section-title">Proyectos personales</h2>
+          <div class="card">
+            <h4>Test Miradas</h4>
+            <p class="body-text">Plataforma web multiusuario desarrollada para una tesis doctoral en neurociencias. Permite incorporar instrumentos de evaluación y gestionar resultados e informes por paciente.</p>
+            <ul class="meta-list">
+              <li><span class="meta-key">Frontend</span> <span class="meta-value">HTML, CSS y JavaScript</span></li>
+              <li><span class="meta-key">Backend</span> <span class="meta-value">Node.js y Express</span></li>
+              <li><span class="meta-key">Base de datos</span> <span class="meta-value">MariaDB</span></li>
+              <li><span class="meta-key">Infraestructura</span> <span class="meta-value">Docker Compose</span></li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>Folio · Finanzas personales</h4>
+            <p class="body-text">Aplicación web que consolida carteras de distintos brókers. Permite importar movimientos, consultar la composición de las inversiones y seguir su rendimiento.</p>
+            <ul class="meta-list">
+              <li><span class="meta-key">Frontend</span> <span class="meta-value">HTML, CSS y JavaScript</span></li>
+              <li><span class="meta-key">Gráficos</span> <span class="meta-value">Apache ECharts</span></li>
+              <li><span class="meta-key">Datos y hosting</span> <span class="meta-value">Cloud Firestore y Firebase Hosting</span></li>
+              <li><span class="meta-key">Precios</span> <span class="meta-value">Cloudflare Workers con TypeScript</span></li>
+            </ul>
+          </div>
         </div>
       </aside>
     </main>
 
     <footer class="footer">
-      <span>Actualizado: Dic 2025</span>
+      <span>Actualizado en noviembre de 2026</span>
     </footer>
   </div>
 </body>
